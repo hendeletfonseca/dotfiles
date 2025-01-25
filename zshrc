@@ -15,8 +15,17 @@ alias cd="z"
 alias cat="bat"
 alias ls="exa --icons"
 alias htop="btop"
-alias lowbright="xrandr --output HDMI-0 --brightness 0.7"
-alias highbright="xrandr --output HDMI-0 --brightness 1"
+
 export CHROME_EXECUTABLE=/usr/bin/chromium
 
 export PATH="/home/hendel/workspace/flutter/bin:$PATH"
+
+function set_brightness() {
+  if [[ -z $1 ]]; then
+    echo "Usage: set_brightness <value>"
+    echo "Value must be between 0.0 (lowest) and 1.0 (default)."
+    return 1
+  fi
+
+  xrandr --output HDMI-0 --brightness $1
+}
