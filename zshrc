@@ -18,8 +18,6 @@ alias htop="btop"
 
 export CHROME_EXECUTABLE=/usr/bin/chromium
 
-export PATH="/home/hendel/workspace/flutter/bin:$PATH"
-
 function set_brightness() {
   if [[ -z $1 ]]; then
     echo "Usage: set_brightness <value>"
@@ -29,3 +27,4 @@ function set_brightness() {
 
   xrandr --output HDMI-0 --brightness $1
 }
+export PATH="$HOME/.cargo/bin:$PATH"
