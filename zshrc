@@ -6,7 +6,7 @@ plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
-eval "$(/home/hendel/.local/bin/mise activate zsh)"
+#eval "$(/home/hendel/.local/bin/mise activate zsh)"
 eval "$(zoxide init zsh)"
 source <(fzf --zsh)
 #eval "$(zellij setup --generate-auto-start zsh)"

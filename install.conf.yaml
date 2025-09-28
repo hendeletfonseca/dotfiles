@@ -1,7 +1,6 @@
 - clean: ['~']
 
 - link:
-    ~/.bashrc: bashrc
     ~/.gitconfig: gitconfig
     ~/.zshrc: zshrc
     ~/.config/kitty: config/kitty
