@@ -2,9 +2,12 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
 
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions asdf)
 
 source $ZSH/oh-my-zsh.sh
+
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 #eval "$(/home/hendel/.local/bin/mise activate zsh)"
 eval "$(zoxide init zsh)"
@@ -16,8 +19,6 @@ alias cat="bat"
 alias ls="exa --icons"
 alias htop="btop"
 
-export CHROME_EXECUTABLE=/usr/bin/chromium
-
 function set_brightness() {
   if [[ -z $1 ]]; then
     echo "Usage: set_brightness <value>"
@@ -27,4 +28,8 @@ function set_brightness() {
 
   xrandr --output HDMI-0 --brightness $1
 }
-export PATH="$HOME/.cargo/bin:$PATH"
+
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
+source <(kubectl completion zsh)
+
