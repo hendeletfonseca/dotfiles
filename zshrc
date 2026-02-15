@@ -18,6 +18,7 @@ alias cd="z"
 alias cat="bat"
 alias ls="exa --icons"
 alias htop="btop"
+alias k="kubectl"
 
 function set_brightness() {
   if [[ -z $1 ]]; then
