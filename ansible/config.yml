@@ -75,6 +75,8 @@ applications_aur_packages:
   - qemu-full
   - libvirt
   - alacritty
+  - kubectl
+  - vlc
 
 # Terminal Tools and Utilities (Pacman)
 # ============================================================================
@@ -112,7 +114,6 @@ flatpak_apps:
   - com.mattjakeman.ExtensionManager
   - com.github.xournalpp.xournalpp
   - com.github.PintaProject.Pinta
-  - com.vixalien.sticky
   - net.nokyan.Resources
   - io.missioncenter.MissionCenter
   - io.gitlab.theevilskeleton.Upscaler
