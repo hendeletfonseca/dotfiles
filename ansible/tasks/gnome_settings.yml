@@ -23,6 +23,12 @@
         key: /org/gnome/desktop/session/idle-delay
         value: "uint32 0"
         state: present
+        
+    - name: Disable switch applications shortcut
+      community.general.dconf:
+        key: /org/gnome/desktop/wm/keybindings/switch-applications
+        value: "@as []"
+        state: present                
 
     - name: Switch windows shortcut (Alt+Tab)
       community.general.dconf:
