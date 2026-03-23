@@ -1,0 +1,132 @@
+---
+# ============================================================================
+# ARCH LINUX POST-INSTALLATION SETUP - CENTRALIZED CONFIGURATION
+# ============================================================================
+# Edit this file to customize which packages get installed and which
+# installation phases run. All variables are defined here in one place.
+# ============================================================================
+
+# Feature Flags - Enable/Disable Installation Phases
+# ============================================================================
+install_yay: true                    # Install YAY AUR helper
+install_hardware_config: true        # Configure AMD CPU + NVIDIA GPU drivers
+install_core_packages: true             # Install core packages
+install_zsh: true                    # Install ZSH + oh-my-zsh + plugins
+install_docker: true                 # Install Docker container engine
+install_applications: true           # Install AUR Packages
+install_flatpak: true                # Install Flatpak + applications
+set_gnome_settings: true             # Configure GNOME settings (keyboard layout, keybindings)
+
+# Hardware Detection Flags
+# ============================================================================
+is_amd_cpu: true                     # Set to true if using AMD CPU (installs amd-ucode)
+is_nvidia_gpu: true                  # Set to true if using NVIDIA GPU (installs drivers)
+
+# YAY AUR Helper Configuration
+# ============================================================================
+yay_install_path: /tmp
+
+# Core and Multimedia Packages (Pacman)
+# ============================================================================
+core_pacman_packages:
+  - base-devel
+  - gcc
+  - linux-headers
+  - git
+  - vim
+  - sudo
+  - make
+  - networkmanager
+  - pipewire 
+  - pipewire-alsa
+  - pipewire-pulse
+  - pipewire-jack
+  - wireplumber
+  - ffmpeg
+  - gst-libav
+  - gst-plugins-base
+  - gst-plugins-good
+  - gst-plugins-bad
+  - gst-plugins-ugly
+  - libva-utils
+  - unzip
+  - wget
+  - curl
+  - openssh
+  - dconf
+
+# ZSH Shell Configuration
+# ============================================================================
+zsh_packages:
+  - zsh
+
+zsh_config:
+  default_shell: /bin/zsh
+  enable_as_default: true
+  zoxide_enabled: true
+  mise_enabled: true
+
+
+# Applications (AUR)
+# ============================================================================
+applications_aur_packages:
+  - visual-studio-code-bin
+  - google-chrome
+  - qemu-full
+  - libvirt
+  - alacritty
+
+# Terminal Tools and Utilities (Pacman)
+# ============================================================================
+terminal_tools_packages:
+  - htop 
+  - fastfetch
+  - neovim
+  - fzf
+  - ripgrep
+  - fd
+  - bat
+  - exa
+  - btop
+  - lazygit
+
+# Docker Configuration
+# ============================================================================
+docker_packages:
+  - docker
+  - lazydocker
+
+docker_config:
+  group: docker
+  enable_service: true
+  enable_containerd: true
+
+# Flatpak Applications
+# ============================================================================
+flatpak_apps:
+  - com.bitwarden.desktop
+  - com.obsproject.Studio
+  - com.spotify.Client
+  - org.qbittorrent.qBittorrent
+  - org.telegram.desktop
+  - com.mattjakeman.ExtensionManager
+  - com.github.xournalpp.xournalpp
+  - com.github.PintaProject.Pinta
+  - com.vixalien.sticky
+  - net.nokyan.Resources
+  - io.missioncenter.MissionCenter
+  - io.gitlab.theevilskeleton.Upscaler
+  - dev.vencord.Vesktop
+  - io.dbeaver.DBeaverCommunity
+  - org.zotero.Zotero
+  - org.localsend.localsend_app
+  - com.github.jeromerobert.pdfarranger
+  - com.github.tchx84.Flatseal
+
+# Hardware Configuration - AMD CPU + NVIDIA GPU
+# ============================================================================
+nvidia_packages:
+  - nvidia-utils
+
+nvidia_optional_packages:
+  - nvidia-settings

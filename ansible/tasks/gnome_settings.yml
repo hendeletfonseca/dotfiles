@@ -1,0 +1,73 @@
+---
+- name: Set system locale
+  community.general.locale_gen:
+    name: en_US.UTF-8
+    state: present
+  become: yes
+
+- name: Set timezone to Sao_Paulo
+  community.general.timezone:
+    name: America/Sao_Paulo
+  become: yes
+
+- name: Configure GNOME settings
+  block:
+    - name: Set keyboard layout (ABNT2 Brazilian)
+      community.general.dconf:
+        key: /org/gnome/desktop/input-sources/sources
+        value: "[('xkb', 'br')]"
+        state: present
+
+    - name: Never blank screen
+      community.general.dconf:
+        key: /org/gnome/desktop/session/idle-delay
+        value: "uint32 0"
+        state: present
+
+    - name: Switch windows shortcut (Alt+Tab)
+      community.general.dconf:
+        key: /org/gnome/desktop/wm/keybindings/switch-windows
+        value: "['<Alt>Tab']"
+        state: present
+
+    - name: Play/Pause shortcut
+      community.general.dconf:
+        key: /org/gnome/settings-daemon/plugins/media-keys/play
+        value: "['<Shift><Super>p']"
+        state: present
+
+    - name: Home shortcut
+      community.general.dconf:
+        key: /org/gnome/settings-daemon/plugins/media-keys/home
+        value: "['<Super>e']"
+        state: present        
+
+    - name: Register custom keybindings
+      community.general.dconf:
+        key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings
+        value: "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
+        state: present
+
+    - name: Terminal shortcut name
+      community.general.dconf:
+        key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/name
+        value: "'terminal'"
+        state: present
+
+    - name: Terminal shortcut command
+      community.general.dconf:
+        key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/command
+        value: "'alacritty'"
+        state: present
+
+    - name: Terminal shortcut binding
+      community.general.dconf:
+        key: /org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/binding
+        value: "'<Super>t'"
+        state: present
+
+    - name: Display GNOME settings notice
+      debug:
+        msg: |
+          GNOME settings configured
+          Keyboard: ABNT2 (Brazilian)

@@ -1,0 +1,32 @@
+---
+- name: Check if flatpak is installed
+  command: which flatpak
+  register: flatpak_check
+  failed_when: false
+  changed_when: false
+
+- name: Install flatpak
+  become: yes
+  community.general.pacman:
+    name: flatpak
+    state: present
+  when: flatpak_check.rc != 0
+
+- name: List existing flatpak remotes
+  become: yes
+  command: flatpak remote-list --app
+  register: flatpak_remotes
+  failed_when: false
+  changed_when: false
+
+- name: Add flathub remote
+  become: yes
+  shell: flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+  changed_when: "'flathub' not in flatpak_remotes.stdout | default('')"
+
+- name: Install flatpak applications
+  community.general.flatpak:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ flatpak_apps }}"
+  register: app_install_results

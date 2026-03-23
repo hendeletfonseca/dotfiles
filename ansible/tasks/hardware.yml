@@ -1,0 +1,21 @@
+---
+- name: Install AMD CPU microcode updates
+  become: yes
+  community.general.pacman:
+    name: amd-ucode
+    state: present
+  when: is_amd_cpu | default(false)
+
+- name: Install NVIDIA GPU drivers and utilities
+  become: yes
+  community.general.pacman:
+    name: "{{ nvidia_packages }}"
+    state: present
+  when: is_nvidia_gpu | default(false)
+
+- name: Install optional NVIDIA libraries
+  become: yes
+  community.general.pacman:
+    name: "{{ nvidia_optional_packages }}"
+    state: present
+  when: is_nvidia_gpu | default(false)

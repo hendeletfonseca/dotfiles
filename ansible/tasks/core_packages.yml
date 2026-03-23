@@ -1,0 +1,7 @@
+---
+- name: Install core packages
+  become: yes
+  community.general.pacman:
+    name: "{{ core_pacman_packages }}"
+    state: present
+    update_cache: yes

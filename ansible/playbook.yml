@@ -1,0 +1,51 @@
+---
+- name: Arch Linux Post-Installation Setup
+  hosts: local
+  gather_facts: true
+  vars_files:
+    - config.yml
+
+  tasks:
+    - name: YAY AUR Helper
+      import_tasks: tasks/yay.yml
+      when: install_yay | default(false)
+
+    - name: Core Packages
+      import_tasks: tasks/core_packages.yml
+      when: install_core_packages | default(false)
+
+    - name: Hardware Configuration (AMD CPU + NVIDIA GPU)
+      import_tasks: tasks/hardware.yml
+      when: install_hardware_config | default(false)
+
+    - name: ZSH Shell Configuration
+      import_tasks: tasks/zsh.yml
+      when: install_zsh | default(false)
+
+    - name: Docker Container Engine
+      import_tasks: tasks/docker.yml
+      when: install_docker | default(false)
+
+    - name: Applications
+      import_tasks: tasks/applications.yml
+      when: install_applications | default(false)
+
+    - name: Flatpak Applications
+      import_tasks: tasks/flatpak.yml
+      when: install_flatpak | default(false)
+
+    - name: GNOME Settings
+      import_tasks: tasks/gnome_settings.yml
+      when: set_gnome_settings | default(false)
+
+    - name: Setup Complete
+      debug:
+        msg: |
+          ✓ Arch Linux post-installation setup completed!
+          
+          Next steps:
+          1. Reboot system to all changes take effect
+          2. Apply your dotfiles using dotbot
+          
+          Run 'flatpak list --app' to verify Flatpak applications
+          Run 'yay -Q | wc -l' to count installed packages

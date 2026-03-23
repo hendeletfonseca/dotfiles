@@ -1,0 +1,44 @@
+---
+- name: Check if yay is installed
+  command: which yay
+  register: yay_check
+  failed_when: false
+  changed_when: false
+
+- name: Install yay AUR helper
+  block:
+    - name: Install git and base-devel
+      become: yes
+      community.general.pacman:
+        name:
+          - git
+          - base-devel
+        state: present
+
+    - name: Clone yay repository
+      ansible.builtin.git:
+        repo: https://aur.archlinux.org/yay.git
+        dest: "{{ yay_install_path }}/yay"
+        version: master
+
+    - name: Build and install yay
+      shell: cd {{ yay_install_path }}/yay && makepkg -si --noconfirm
+      args:
+        executable: /bin/bash
+
+    - name: Initialize yay database
+      shell: yay -Y --gendb --noconfirm
+      args:
+        executable: /bin/bash
+
+    - name: Update all packages
+      shell: yay -Syu --devel --noconfirm
+      args:
+        executable: /bin/bash
+
+    - name: Save development flags
+      shell: yay -Y --devel --save
+      args:
+        executable: /bin/bash
+
+  when: yay_check.rc != 0

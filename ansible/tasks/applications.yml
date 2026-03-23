@@ -1,0 +1,12 @@
+---
+- name: Install applications from AUR
+  kewlfft.aur.aur:
+    name: "{{ applications_aur_packages }}"
+    state: present
+    use: yay
+    
+- name: Install terminal tools and utilities
+  become: yes
+  community.general.pacman:
+    name: "{{ terminal_tools_packages }}"
+    state: present

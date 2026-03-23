@@ -1,0 +1,45 @@
+---
+- name: Install Docker packages
+  become: yes
+  community.general.pacman:
+    name: "{{ docker_packages }}"
+    state: present
+
+- name: Create docker group
+  become: yes
+  ansible.builtin.group:
+    name: "{{ docker_config.group }}"
+    state: present
+  register: docker_group_created
+
+- name: Add user to docker group
+  become: yes
+  ansible.builtin.user:
+    name: "{{ ansible_facts['user_id'] }}"
+    groups: "{{ docker_config.group }}"
+    append: yes
+  when: docker_group_created is succeeded
+  register: docker_group_change
+
+- name: Enable Docker service
+  become: yes
+  ansible.builtin.systemd:
+    name: docker.service
+    enabled: yes
+    state: started
+  when: docker_config.enable_service | default(true)
+
+- name: Enable containerd service
+  become: yes
+  ansible.builtin.systemd:
+    name: containerd.service
+    enabled: yes
+    state: started
+  when: docker_config.enable_containerd | default(true)
+
+- name: Display Docker group notice
+  debug:
+    msg: |
+      Docker installed and configured
+      Please log out and log back in to take effect
+  when: docker_group_change.changed

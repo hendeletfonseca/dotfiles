@@ -1,0 +1,446 @@
+2026-03-23 00:56:40,227 p=6350 u=hendel n=ansible INFO| PLAY [Arch Linux Post-Installation Setup] **************************************
+2026-03-23 00:56:40,232 p=6350 u=hendel n=ansible INFO| TASK [Gathering Facts] *********************************************************
+2026-03-23 00:56:40,982 p=6350 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-23 00:56:40,987 p=6350 u=hendel n=ansible INFO| TASK [Check if yay is installed] ***********************************************
+2026-03-23 00:56:41,265 p=6350 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-23 00:56:41,269 p=6350 u=hendel n=ansible INFO| TASK [Install git and base-devel] **********************************************
+2026-03-23 00:56:44,492 p=6350 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-23 00:56:44,497 p=6350 u=hendel n=ansible INFO| TASK [Clone yay repository] ****************************************************
+2026-03-23 00:56:48,702 p=6350 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-23 00:56:48,707 p=6350 u=hendel n=ansible INFO| TASK [Build and install yay] ***************************************************
+2026-03-23 00:57:15,327 p=6350 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-23 00:57:15,331 p=6350 u=hendel n=ansible INFO| TASK [Initialize yay database] *************************************************
+2026-03-23 00:57:18,692 p=6350 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-23 00:57:18,696 p=6350 u=hendel n=ansible INFO| TASK [Update all packages] *****************************************************
+2026-03-23 00:57:20,100 p=6350 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-23 00:57:20,104 p=6350 u=hendel n=ansible INFO| TASK [Save development flags] **************************************************
+2026-03-23 00:57:20,349 p=6350 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-23 00:57:20,354 p=6350 u=hendel n=ansible INFO| TASK [Install core packages] ***************************************************
+2026-03-23 00:57:23,171 p=6350 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-23 00:57:23,175 p=6350 u=hendel n=ansible INFO| TASK [Install AMD CPU microcode updates] ***************************************
+2026-03-23 00:57:24,957 p=6350 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-23 00:57:24,961 p=6350 u=hendel n=ansible INFO| TASK [Install NVIDIA GPU drivers and utilities] ********************************
+2026-03-23 00:57:26,902 p=6350 u=hendel n=ansible ERROR| [ERROR]: Task failed: Module failed: Failed to list package nvidia
+Origin: /home/hendel/arch-setup/ansible/tasks/hardware.yml:9:3
+
+7   when: is_amd_cpu | default(false)
+8
+9 - name: Install NVIDIA GPU drivers and utilities
+    ^ column 3
+
+
+2026-03-23 00:57:26,902 p=6350 u=hendel n=ansible INFO| fatal: [localhost]: FAILED! => {"changed": false, "cmd": ["/usr/bin/pacman", "--upgrade", "--print-format", "%n", "nvidia"], "msg": "Failed to list package nvidia", "rc": 1, "stderr": "error: 'nvidia': could not find or read package\n", "stderr_lines": ["error: 'nvidia': could not find or read package"]}
+2026-03-23 00:57:26,903 p=6350 u=hendel n=ansible INFO| PLAY RECAP *********************************************************************
+2026-03-23 00:57:26,903 p=6350 u=hendel n=ansible INFO| localhost                  : ok=10   changed=7    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   
+2026-03-23 00:59:36,689 p=19219 u=hendel n=ansible INFO| PLAY [Arch Linux Post-Installation Setup] **************************************************************************************************************************************************************************
+2026-03-23 00:59:36,695 p=19219 u=hendel n=ansible INFO| TASK [Gathering Facts] *********************************************************************************************************************************************************************************************
+2026-03-23 00:59:37,446 p=19219 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-23 00:59:37,451 p=19219 u=hendel n=ansible INFO| TASK [Check if yay is installed] ***********************************************************************************************************************************************************************************
+2026-03-23 00:59:37,463 p=19219 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-23 00:59:37,468 p=19219 u=hendel n=ansible INFO| TASK [Install git and base-devel] **********************************************************************************************************************************************************************************
+2026-03-23 00:59:37,480 p=19219 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-23 00:59:37,484 p=19219 u=hendel n=ansible INFO| TASK [Clone yay repository] ****************************************************************************************************************************************************************************************
+2026-03-23 00:59:37,495 p=19219 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-23 00:59:37,499 p=19219 u=hendel n=ansible INFO| TASK [Build and install yay] ***************************************************************************************************************************************************************************************
+2026-03-23 00:59:37,511 p=19219 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-23 00:59:37,515 p=19219 u=hendel n=ansible INFO| TASK [Initialize yay database] *************************************************************************************************************************************************************************************
+2026-03-23 00:59:37,528 p=19219 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-23 00:59:37,532 p=19219 u=hendel n=ansible INFO| TASK [Update all packages] *****************************************************************************************************************************************************************************************
+2026-03-23 00:59:37,543 p=19219 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-23 00:59:37,547 p=19219 u=hendel n=ansible INFO| TASK [Save development flags] **************************************************************************************************************************************************************************************
+2026-03-23 00:59:37,559 p=19219 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-23 00:59:37,564 p=19219 u=hendel n=ansible INFO| TASK [Install core packages] ***************************************************************************************************************************************************************************************
+2026-03-23 00:59:38,766 p=19219 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-23 00:59:38,770 p=19219 u=hendel n=ansible INFO| TASK [Install AMD CPU microcode updates] ***************************************************************************************************************************************************************************
+2026-03-23 00:59:40,541 p=19219 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-23 00:59:40,546 p=19219 u=hendel n=ansible INFO| TASK [Install NVIDIA GPU drivers and utilities] ********************************************************************************************************************************************************************
+2026-03-23 00:59:42,315 p=19219 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-23 00:59:42,319 p=19219 u=hendel n=ansible INFO| TASK [Install optional NVIDIA libraries] ***************************************************************************************************************************************************************************
+2026-03-23 00:59:45,791 p=19219 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-23 00:59:45,796 p=19219 u=hendel n=ansible INFO| TASK [Install ZSH package] *****************************************************************************************************************************************************************************************
+2026-03-23 00:59:50,454 p=19219 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-23 00:59:50,459 p=19219 u=hendel n=ansible INFO| TASK [Check if oh-my-zsh is installed] *****************************************************************************************************************************************************************************
+2026-03-23 00:59:50,751 p=19219 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-23 00:59:50,756 p=19219 u=hendel n=ansible INFO| TASK [Install oh-my-zsh] *******************************************************************************************************************************************************************************************
+2026-03-23 00:59:53,820 p=19219 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-23 00:59:53,825 p=19219 u=hendel n=ansible INFO| TASK [Install zoxide] **********************************************************************************************************************************************************************************************
+2026-03-23 00:59:54,819 p=19219 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-23 00:59:54,824 p=19219 u=hendel n=ansible INFO| TASK [Install zsh-syntax-highlighting plugin] **********************************************************************************************************************************************************************
+2026-03-23 00:59:54,840 p=19219 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-23 00:59:54,845 p=19219 u=hendel n=ansible INFO| TASK [Install zsh-autosuggestions plugin] **************************************************************************************************************************************************************************
+2026-03-23 00:59:54,861 p=19219 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-23 00:59:54,867 p=19219 u=hendel n=ansible INFO| TASK [Install mise (runtime version manager)] **********************************************************************************************************************************************************************
+2026-03-23 00:59:57,653 p=19219 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-23 00:59:57,657 p=19219 u=hendel n=ansible INFO| TASK [Set ZSH as default shell] ************************************************************************************************************************************************************************************
+2026-03-23 00:59:58,043 p=19219 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-23 00:59:58,048 p=19219 u=hendel n=ansible INFO| TASK [Display ZSH default shell notice] ****************************************************************************************************************************************************************************
+2026-03-23 00:59:58,065 p=19219 u=hendel n=ansible INFO| ok: [localhost] => {
+    "msg": "✓ ZSH set as default shell\n⚠ Please log out and log back in for changes to take effect\n"
+}
+2026-03-23 00:59:58,070 p=19219 u=hendel n=ansible INFO| TASK [Install Docker packages] *************************************************************************************************************************************************************************************
+2026-03-23 00:59:58,083 p=19219 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-23 00:59:58,087 p=19219 u=hendel n=ansible INFO| TASK [Create docker group] *****************************************************************************************************************************************************************************************
+2026-03-23 00:59:58,101 p=19219 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-23 00:59:58,105 p=19219 u=hendel n=ansible INFO| TASK [Add user to docker group] ************************************************************************************************************************************************************************************
+2026-03-23 00:59:58,119 p=19219 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-23 00:59:58,123 p=19219 u=hendel n=ansible INFO| TASK [Enable Docker service] ***************************************************************************************************************************************************************************************
+2026-03-23 00:59:58,137 p=19219 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-23 00:59:58,141 p=19219 u=hendel n=ansible INFO| TASK [Enable containerd service] ***********************************************************************************************************************************************************************************
+2026-03-23 00:59:58,154 p=19219 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-23 00:59:58,158 p=19219 u=hendel n=ansible INFO| TASK [Display Docker group notice] *********************************************************************************************************************************************************************************
+2026-03-23 00:59:58,172 p=19219 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-23 00:59:58,176 p=19219 u=hendel n=ansible INFO| TASK [Install applications from AUR] *******************************************************************************************************************************************************************************
+2026-03-23 01:01:30,098 p=19219 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-23 01:01:30,103 p=19219 u=hendel n=ansible INFO| TASK [Install terminal tools and utilities] ************************************************************************************************************************************************************************
+2026-03-23 01:01:34,831 p=19219 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-23 01:01:34,836 p=19219 u=hendel n=ansible INFO| TASK [Check if flatpak is installed] *******************************************************************************************************************************************************************************
+2026-03-23 01:01:35,059 p=19219 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-23 01:01:35,064 p=19219 u=hendel n=ansible INFO| TASK [Install flatpak] *********************************************************************************************************************************************************************************************
+2026-03-23 01:01:35,079 p=19219 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-23 01:01:35,083 p=19219 u=hendel n=ansible INFO| TASK [List existing flatpak remotes] *******************************************************************************************************************************************************************************
+2026-03-23 01:01:35,330 p=19219 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-23 01:01:35,334 p=19219 u=hendel n=ansible INFO| TASK [Add flathub remote] ******************************************************************************************************************************************************************************************
+2026-03-23 01:01:36,369 p=19219 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-23 01:01:36,374 p=19219 u=hendel n=ansible INFO| TASK [Install flatpak applications] ********************************************************************************************************************************************************************************
+2026-03-23 01:03:22,351 p=19219 u=hendel n=ansible INFO| changed: [localhost] => (item=com.obsproject.Studio)
+2026-03-23 01:03:47,927 p=19219 u=hendel n=ansible INFO| changed: [localhost] => (item=com.spotify.Client)
+2026-03-23 01:04:52,635 p=19219 u=hendel n=ansible INFO| changed: [localhost] => (item=org.qbittorrent.qBittorrent)
+2026-03-23 01:05:41,755 p=19219 u=hendel n=ansible INFO| changed: [localhost] => (item=org.telegram.desktop)
+2026-03-23 01:05:43,822 p=19219 u=hendel n=ansible INFO| changed: [localhost] => (item=com.mattjakeman.ExtensionManager)
+2026-03-23 01:05:56,868 p=19219 u=hendel n=ansible INFO| changed: [localhost] => (item=com.github.xournalpp.xournalpp)
+2026-03-23 01:06:02,916 p=19219 u=hendel n=ansible INFO| changed: [localhost] => (item=com.github.PintaProject.Pinta)
+2026-03-23 01:06:33,661 p=19219 u=hendel n=ansible INFO| changed: [localhost] => (item=com.vixalien.sticky)
+2026-03-23 01:06:35,176 p=19219 u=hendel n=ansible INFO| changed: [localhost] => (item=net.nokyan.Resources)
+2026-03-23 01:06:38,557 p=19219 u=hendel n=ansible INFO| changed: [localhost] => (item=io.missioncenter.MissionCenter)
+2026-03-23 01:06:45,354 p=19219 u=hendel n=ansible INFO| changed: [localhost] => (item=io.gitlab.theevilskeleton.Upscaler)
+2026-03-23 01:06:59,566 p=19219 u=hendel n=ansible INFO| changed: [localhost] => (item=dev.vencord.Vesktop)
+2026-03-23 01:07:18,535 p=19219 u=hendel n=ansible INFO| changed: [localhost] => (item=io.dbeaver.DBeaverCommunity)
+2026-03-23 01:07:34,026 p=19219 u=hendel n=ansible INFO| changed: [localhost] => (item=org.zotero.Zotero)
+2026-03-23 01:07:36,763 p=19219 u=hendel n=ansible INFO| changed: [localhost] => (item=org.localsend.localsend_app)
+2026-03-23 01:08:14,704 p=19219 u=hendel n=ansible INFO| changed: [localhost] => (item=com.github.jeromerobert.pdfarranger)
+2026-03-23 01:08:15,781 p=19219 u=hendel n=ansible INFO| changed: [localhost] => (item=com.github.tchx84.Flatseal)
+2026-03-23 01:08:15,789 p=19219 u=hendel n=ansible INFO| TASK [Set system locale] *******************************************************************************************************************************************************************************************
+2026-03-23 01:08:16,164 p=19219 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-23 01:08:16,170 p=19219 u=hendel n=ansible INFO| TASK [Set timezone to Sao_Paulo] ***********************************************************************************************************************************************************************************
+2026-03-23 01:08:16,598 p=19219 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-23 01:08:16,603 p=19219 u=hendel n=ansible INFO| TASK [Set keyboard layout (ABNT2 Brazilian)] ***********************************************************************************************************************************************************************
+2026-03-23 01:08:17,001 p=19219 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-23 01:08:17,007 p=19219 u=hendel n=ansible INFO| TASK [Never blank screen] ******************************************************************************************************************************************************************************************
+2026-03-23 01:08:17,307 p=19219 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-23 01:08:17,312 p=19219 u=hendel n=ansible INFO| TASK [Switch windows shortcut (Alt+Tab)] ***************************************************************************************************************************************************************************
+2026-03-23 01:08:17,615 p=19219 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-23 01:08:17,621 p=19219 u=hendel n=ansible INFO| TASK [Play/Pause shortcut] *****************************************************************************************************************************************************************************************
+2026-03-23 01:08:17,927 p=19219 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-23 01:08:17,932 p=19219 u=hendel n=ansible INFO| TASK [Register custom keybindings] *********************************************************************************************************************************************************************************
+2026-03-23 01:08:18,247 p=19219 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-23 01:08:18,252 p=19219 u=hendel n=ansible INFO| TASK [Terminal shortcut name] **************************************************************************************************************************************************************************************
+2026-03-23 01:08:18,561 p=19219 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-23 01:08:18,566 p=19219 u=hendel n=ansible INFO| TASK [Terminal shortcut command] ***********************************************************************************************************************************************************************************
+2026-03-23 01:08:18,864 p=19219 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-23 01:08:18,869 p=19219 u=hendel n=ansible INFO| TASK [Terminal shortcut binding] ***********************************************************************************************************************************************************************************
+2026-03-23 01:08:19,168 p=19219 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-23 01:08:19,173 p=19219 u=hendel n=ansible INFO| TASK [Display GNOME settings notice] *******************************************************************************************************************************************************************************
+2026-03-23 01:08:19,193 p=19219 u=hendel n=ansible INFO| ok: [localhost] => {
+    "msg": "GNOME settings configured\nKeyboard: ABNT2 (Brazilian)"
+}
+2026-03-23 01:08:19,197 p=19219 u=hendel n=ansible INFO| TASK [Setup Complete] **********************************************************************************************************************************************************************************************
+2026-03-23 01:08:19,207 p=19219 u=hendel n=ansible INFO| ok: [localhost] => {
+    "msg": "✓ Arch Linux post-installation setup completed!\n\nNext steps:\n1. Reboot system to all changes take effect\n2. Apply your dotfiles using dotbot\n\nRun 'flatpak list --app' to verify Flatpak applications\nRun 'yay -Q | wc -l' to count installed packages\n"
+}
+2026-03-23 01:08:19,208 p=19219 u=hendel n=ansible INFO| PLAY RECAP *********************************************************************************************************************************************************************************************************
+2026-03-23 01:08:19,208 p=19219 u=hendel n=ansible INFO| localhost                  : ok=30   changed=19   unreachable=0    failed=0    skipped=16   rescued=0    ignored=0   
+2026-03-22 22:12:53,831 p=5240 u=hendel n=ansible INFO| PLAY [Arch Linux Post-Installation Setup] **************************************
+2026-03-22 22:12:53,841 p=5240 u=hendel n=ansible INFO| TASK [Gathering Facts] *********************************************************
+2026-03-22 22:12:54,614 p=5240 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-22 22:12:54,619 p=5240 u=hendel n=ansible INFO| TASK [Check if yay is installed] ***********************************************
+2026-03-22 22:12:54,634 p=5240 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:12:54,638 p=5240 u=hendel n=ansible INFO| TASK [Install git and base-devel] **********************************************
+2026-03-22 22:12:54,650 p=5240 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:12:54,654 p=5240 u=hendel n=ansible INFO| TASK [Clone yay repository] ****************************************************
+2026-03-22 22:12:54,667 p=5240 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:12:54,672 p=5240 u=hendel n=ansible INFO| TASK [Build and install yay] ***************************************************
+2026-03-22 22:12:54,683 p=5240 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:12:54,687 p=5240 u=hendel n=ansible INFO| TASK [Initialize yay database] *************************************************
+2026-03-22 22:12:54,700 p=5240 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:12:54,704 p=5240 u=hendel n=ansible INFO| TASK [Update all packages] *****************************************************
+2026-03-22 22:12:54,716 p=5240 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:12:54,720 p=5240 u=hendel n=ansible INFO| TASK [Save development flags] **************************************************
+2026-03-22 22:12:54,732 p=5240 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:12:54,736 p=5240 u=hendel n=ansible INFO| TASK [Install core packages] ***************************************************
+2026-03-22 22:12:54,749 p=5240 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:12:54,753 p=5240 u=hendel n=ansible INFO| TASK [Install AMD CPU microcode updates] ***************************************
+2026-03-22 22:12:54,765 p=5240 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:12:54,769 p=5240 u=hendel n=ansible INFO| TASK [Install NVIDIA GPU drivers and utilities] ********************************
+2026-03-22 22:12:54,781 p=5240 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:12:54,785 p=5240 u=hendel n=ansible INFO| TASK [Install optional NVIDIA libraries] ***************************************
+2026-03-22 22:12:54,797 p=5240 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:12:54,801 p=5240 u=hendel n=ansible INFO| TASK [Install ZSH package] *****************************************************
+2026-03-22 22:12:54,814 p=5240 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:12:54,818 p=5240 u=hendel n=ansible INFO| TASK [Check if oh-my-zsh is installed] *****************************************
+2026-03-22 22:12:54,830 p=5240 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:12:54,835 p=5240 u=hendel n=ansible INFO| TASK [Install oh-my-zsh] *******************************************************
+2026-03-22 22:12:54,846 p=5240 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:12:54,851 p=5240 u=hendel n=ansible INFO| TASK [Install zoxide] **********************************************************
+2026-03-22 22:12:54,863 p=5240 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:12:54,867 p=5240 u=hendel n=ansible INFO| TASK [Install zsh-syntax-highlighting plugin] **********************************
+2026-03-22 22:12:54,879 p=5240 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:12:54,883 p=5240 u=hendel n=ansible INFO| TASK [Install zsh-autosuggestions plugin] **************************************
+2026-03-22 22:12:54,895 p=5240 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:12:54,899 p=5240 u=hendel n=ansible INFO| TASK [Install mise (runtime version manager)] **********************************
+2026-03-22 22:12:54,911 p=5240 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:12:54,915 p=5240 u=hendel n=ansible INFO| TASK [Set ZSH as default shell] ************************************************
+2026-03-22 22:12:54,928 p=5240 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:12:54,933 p=5240 u=hendel n=ansible INFO| TASK [Display ZSH default shell notice] ****************************************
+2026-03-22 22:12:54,945 p=5240 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:12:54,949 p=5240 u=hendel n=ansible INFO| TASK [Install Docker packages] *************************************************
+2026-03-22 22:12:56,056 p=5240 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-22 22:12:56,060 p=5240 u=hendel n=ansible INFO| TASK [Create docker group] *****************************************************
+2026-03-22 22:12:56,355 p=5240 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-22 22:12:56,359 p=5240 u=hendel n=ansible INFO| TASK [Add user to docker group] ************************************************
+2026-03-22 22:12:56,739 p=5240 u=hendel n=ansible ERROR| [ERROR]: Task failed: Module failed: Group docker does not exist
+Origin: /home/hendel/arch-setup/ansible/tasks/docker.yml:15:3
+
+13   register: docker_group_created
+14
+15 - name: Add user to docker group
+     ^ column 3
+
+
+2026-03-22 22:12:56,740 p=5240 u=hendel n=ansible INFO| fatal: [localhost]: FAILED! => {"changed": false, "msg": "Group docker does not exist"}
+2026-03-22 22:12:56,740 p=5240 u=hendel n=ansible INFO| PLAY RECAP *********************************************************************
+2026-03-22 22:12:56,740 p=5240 u=hendel n=ansible INFO| localhost                  : ok=3    changed=2    unreachable=0    failed=1    skipped=20   rescued=0    ignored=0   
+2026-03-22 22:13:01,831 p=5395 u=hendel n=ansible INFO| PLAY [Arch Linux Post-Installation Setup] **************************************
+2026-03-22 22:13:01,837 p=5395 u=hendel n=ansible INFO| TASK [Gathering Facts] *********************************************************
+2026-03-22 22:13:02,639 p=5395 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-22 22:13:02,643 p=5395 u=hendel n=ansible INFO| TASK [Check if yay is installed] ***********************************************
+2026-03-22 22:13:02,656 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:02,661 p=5395 u=hendel n=ansible INFO| TASK [Install git and base-devel] **********************************************
+2026-03-22 22:13:02,672 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:02,676 p=5395 u=hendel n=ansible INFO| TASK [Clone yay repository] ****************************************************
+2026-03-22 22:13:02,689 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:02,693 p=5395 u=hendel n=ansible INFO| TASK [Build and install yay] ***************************************************
+2026-03-22 22:13:02,705 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:02,709 p=5395 u=hendel n=ansible INFO| TASK [Initialize yay database] *************************************************
+2026-03-22 22:13:02,721 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:02,726 p=5395 u=hendel n=ansible INFO| TASK [Update all packages] *****************************************************
+2026-03-22 22:13:02,738 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:02,742 p=5395 u=hendel n=ansible INFO| TASK [Save development flags] **************************************************
+2026-03-22 22:13:02,755 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:02,759 p=5395 u=hendel n=ansible INFO| TASK [Install core packages] ***************************************************
+2026-03-22 22:13:02,771 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:02,775 p=5395 u=hendel n=ansible INFO| TASK [Install AMD CPU microcode updates] ***************************************
+2026-03-22 22:13:02,787 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:02,792 p=5395 u=hendel n=ansible INFO| TASK [Install NVIDIA GPU drivers and utilities] ********************************
+2026-03-22 22:13:02,804 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:02,808 p=5395 u=hendel n=ansible INFO| TASK [Install optional NVIDIA libraries] ***************************************
+2026-03-22 22:13:02,821 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:02,825 p=5395 u=hendel n=ansible INFO| TASK [Install ZSH package] *****************************************************
+2026-03-22 22:13:02,837 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:02,841 p=5395 u=hendel n=ansible INFO| TASK [Check if oh-my-zsh is installed] *****************************************
+2026-03-22 22:13:02,853 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:02,858 p=5395 u=hendel n=ansible INFO| TASK [Install oh-my-zsh] *******************************************************
+2026-03-22 22:13:02,870 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:02,875 p=5395 u=hendel n=ansible INFO| TASK [Install zoxide] **********************************************************
+2026-03-22 22:13:02,886 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:02,891 p=5395 u=hendel n=ansible INFO| TASK [Install zsh-syntax-highlighting plugin] **********************************
+2026-03-22 22:13:02,903 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:02,907 p=5395 u=hendel n=ansible INFO| TASK [Install zsh-autosuggestions plugin] **************************************
+2026-03-22 22:13:02,920 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:02,924 p=5395 u=hendel n=ansible INFO| TASK [Install mise (runtime version manager)] **********************************
+2026-03-22 22:13:02,937 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:02,940 p=5395 u=hendel n=ansible INFO| TASK [Set ZSH as default shell] ************************************************
+2026-03-22 22:13:02,952 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:02,956 p=5395 u=hendel n=ansible INFO| TASK [Display ZSH default shell notice] ****************************************
+2026-03-22 22:13:02,968 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:02,972 p=5395 u=hendel n=ansible INFO| TASK [Install Docker packages] *************************************************
+2026-03-22 22:13:10,389 p=5395 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-22 22:13:10,394 p=5395 u=hendel n=ansible INFO| TASK [Create docker group] *****************************************************
+2026-03-22 22:13:10,695 p=5395 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-22 22:13:10,699 p=5395 u=hendel n=ansible INFO| TASK [Add user to docker group] ************************************************
+2026-03-22 22:13:11,102 p=5395 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-22 22:13:11,107 p=5395 u=hendel n=ansible INFO| TASK [Enable Docker service] ***************************************************
+2026-03-22 22:13:12,300 p=5395 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-22 22:13:12,305 p=5395 u=hendel n=ansible INFO| TASK [Enable containerd service] ***********************************************
+2026-03-22 22:13:12,886 p=5395 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-22 22:13:12,890 p=5395 u=hendel n=ansible INFO| TASK [Display Docker group notice] *********************************************
+2026-03-22 22:13:12,908 p=5395 u=hendel n=ansible INFO| ok: [localhost] => {
+    "msg": "✓ Docker installed and configured\n⚠ Please log out and log back in for group membership to take effect\n"
+}
+2026-03-22 22:13:12,913 p=5395 u=hendel n=ansible INFO| TASK [Install applications from AUR] *******************************************
+2026-03-22 22:13:12,927 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:12,931 p=5395 u=hendel n=ansible INFO| TASK [Install terminal tools and utilities] ************************************
+2026-03-22 22:13:12,945 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:12,949 p=5395 u=hendel n=ansible INFO| TASK [Check if flatpak is installed] *******************************************
+2026-03-22 22:13:12,963 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:12,968 p=5395 u=hendel n=ansible INFO| TASK [Install flatpak] *********************************************************
+2026-03-22 22:13:12,982 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:12,986 p=5395 u=hendel n=ansible INFO| TASK [List existing flatpak remotes] *******************************************
+2026-03-22 22:13:13,000 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:13,004 p=5395 u=hendel n=ansible INFO| TASK [Add flathub remote] ******************************************************
+2026-03-22 22:13:13,018 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:13,023 p=5395 u=hendel n=ansible INFO| TASK [Install flatpak applications] ********************************************
+2026-03-22 22:13:13,039 p=5395 u=hendel n=ansible INFO| skipping: [localhost] => (item=com.bitwarden.desktop) 
+2026-03-22 22:13:13,040 p=5395 u=hendel n=ansible INFO| skipping: [localhost] => (item=com.obsproject.Studio) 
+2026-03-22 22:13:13,041 p=5395 u=hendel n=ansible INFO| skipping: [localhost] => (item=com.spotify.Client) 
+2026-03-22 22:13:13,043 p=5395 u=hendel n=ansible INFO| skipping: [localhost] => (item=org.qbittorrent.qBittorrent) 
+2026-03-22 22:13:13,045 p=5395 u=hendel n=ansible INFO| skipping: [localhost] => (item=org.telegram.desktop) 
+2026-03-22 22:13:13,046 p=5395 u=hendel n=ansible INFO| skipping: [localhost] => (item=com.mattjakeman.ExtensionManager) 
+2026-03-22 22:13:13,048 p=5395 u=hendel n=ansible INFO| skipping: [localhost] => (item=com.github.xournalpp.xournalpp) 
+2026-03-22 22:13:13,049 p=5395 u=hendel n=ansible INFO| skipping: [localhost] => (item=com.github.PintaProject.Pinta) 
+2026-03-22 22:13:13,051 p=5395 u=hendel n=ansible INFO| skipping: [localhost] => (item=com.vixalien.sticky) 
+2026-03-22 22:13:13,053 p=5395 u=hendel n=ansible INFO| skipping: [localhost] => (item=net.nokyan.Resources) 
+2026-03-22 22:13:13,054 p=5395 u=hendel n=ansible INFO| skipping: [localhost] => (item=io.missioncenter.MissionCenter) 
+2026-03-22 22:13:13,056 p=5395 u=hendel n=ansible INFO| skipping: [localhost] => (item=io.gitlab.theevilskeleton.Upscaler) 
+2026-03-22 22:13:13,058 p=5395 u=hendel n=ansible INFO| skipping: [localhost] => (item=dev.vencord.Vesktop) 
+2026-03-22 22:13:13,059 p=5395 u=hendel n=ansible INFO| skipping: [localhost] => (item=io.dbeaver.DBeaverCommunity) 
+2026-03-22 22:13:13,061 p=5395 u=hendel n=ansible INFO| skipping: [localhost] => (item=org.zotero.Zotero) 
+2026-03-22 22:13:13,062 p=5395 u=hendel n=ansible INFO| skipping: [localhost] => (item=org.localsend.localsend_app) 
+2026-03-22 22:13:13,064 p=5395 u=hendel n=ansible INFO| skipping: [localhost] => (item=com.github.jeromerobert.pdfarranger) 
+2026-03-22 22:13:13,066 p=5395 u=hendel n=ansible INFO| skipping: [localhost] => (item=com.github.tchx84.Flatseal) 
+2026-03-22 22:13:13,067 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:13,072 p=5395 u=hendel n=ansible INFO| TASK [Set system locale] *******************************************************
+2026-03-22 22:13:13,085 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:13,090 p=5395 u=hendel n=ansible INFO| TASK [Set timezone to Sao_Paulo] ***********************************************
+2026-03-22 22:13:13,104 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:13,108 p=5395 u=hendel n=ansible INFO| TASK [Set keyboard layout (ABNT2 Brazilian)] ***********************************
+2026-03-22 22:13:13,122 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:13,127 p=5395 u=hendel n=ansible INFO| TASK [Never blank screen] ******************************************************
+2026-03-22 22:13:13,140 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:13,145 p=5395 u=hendel n=ansible INFO| TASK [Switch windows shortcut (Alt+Tab)] ***************************************
+2026-03-22 22:13:13,159 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:13,164 p=5395 u=hendel n=ansible INFO| TASK [Play/Pause shortcut] *****************************************************
+2026-03-22 22:13:13,177 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:13,182 p=5395 u=hendel n=ansible INFO| TASK [Register custom keybindings] *********************************************
+2026-03-22 22:13:13,195 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:13,199 p=5395 u=hendel n=ansible INFO| TASK [Terminal shortcut name] **************************************************
+2026-03-22 22:13:13,214 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:13,218 p=5395 u=hendel n=ansible INFO| TASK [Terminal shortcut command] ***********************************************
+2026-03-22 22:13:13,232 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:13,236 p=5395 u=hendel n=ansible INFO| TASK [Terminal shortcut binding] ***********************************************
+2026-03-22 22:13:13,250 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:13,254 p=5395 u=hendel n=ansible INFO| TASK [Display GNOME settings notice] *******************************************
+2026-03-22 22:13:13,268 p=5395 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:13:13,272 p=5395 u=hendel n=ansible INFO| TASK [Setup Complete] **********************************************************
+2026-03-22 22:13:13,282 p=5395 u=hendel n=ansible INFO| ok: [localhost] => {
+    "msg": "✓ Arch Linux post-installation setup completed!\n\nNext steps:\n1. Reboot system to all changes take effect\n2. Apply your dotfiles using dotbot\n\nRun 'flatpak list --app' to verify Flatpak applications\nRun 'yay -Q | wc -l' to count installed packages\n"
+}
+2026-03-22 22:13:13,283 p=5395 u=hendel n=ansible INFO| PLAY RECAP *********************************************************************
+2026-03-22 22:13:13,283 p=5395 u=hendel n=ansible INFO| localhost                  : ok=8    changed=4    unreachable=0    failed=0    skipped=38   rescued=0    ignored=0   
+2026-03-22 22:35:51,176 p=10420 u=hendel n=ansible INFO| PLAY [Arch Linux Post-Installation Setup] **************************************
+2026-03-22 22:35:51,182 p=10420 u=hendel n=ansible INFO| TASK [Gathering Facts] *********************************************************
+2026-03-22 22:35:51,937 p=10420 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-22 22:35:51,941 p=10420 u=hendel n=ansible INFO| TASK [Check if yay is installed] ***********************************************
+2026-03-22 22:35:52,231 p=10420 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-22 22:35:52,236 p=10420 u=hendel n=ansible INFO| TASK [Install git and base-devel] **********************************************
+2026-03-22 22:35:52,249 p=10420 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:35:52,254 p=10420 u=hendel n=ansible INFO| TASK [Clone yay repository] ****************************************************
+2026-03-22 22:35:52,267 p=10420 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:35:52,271 p=10420 u=hendel n=ansible INFO| TASK [Build and install yay] ***************************************************
+2026-03-22 22:35:52,284 p=10420 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:35:52,288 p=10420 u=hendel n=ansible INFO| TASK [Initialize yay database] *************************************************
+2026-03-22 22:35:52,302 p=10420 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:35:52,306 p=10420 u=hendel n=ansible INFO| TASK [Update all packages] *****************************************************
+2026-03-22 22:35:52,320 p=10420 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:35:52,324 p=10420 u=hendel n=ansible INFO| TASK [Save development flags] **************************************************
+2026-03-22 22:35:52,337 p=10420 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:35:52,342 p=10420 u=hendel n=ansible INFO| TASK [Install core packages] ***************************************************
+2026-03-22 22:35:55,147 p=10420 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-22 22:35:55,152 p=10420 u=hendel n=ansible INFO| TASK [Install AMD CPU microcode updates] ***************************************
+2026-03-22 22:35:55,936 p=10420 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-22 22:35:55,941 p=10420 u=hendel n=ansible INFO| TASK [Install NVIDIA GPU drivers and utilities] ********************************
+2026-03-22 22:35:56,725 p=10420 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-22 22:35:56,729 p=10420 u=hendel n=ansible INFO| TASK [Install optional NVIDIA libraries] ***************************************
+2026-03-22 22:35:57,508 p=10420 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-22 22:35:57,513 p=10420 u=hendel n=ansible INFO| TASK [Install ZSH package] *****************************************************
+2026-03-22 22:35:58,291 p=10420 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-22 22:35:58,296 p=10420 u=hendel n=ansible INFO| TASK [Check if oh-my-zsh is installed] *****************************************
+2026-03-22 22:35:58,588 p=10420 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-22 22:35:58,592 p=10420 u=hendel n=ansible INFO| TASK [Install oh-my-zsh] *******************************************************
+2026-03-22 22:35:58,606 p=10420 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:35:58,611 p=10420 u=hendel n=ansible INFO| TASK [Install zoxide] **********************************************************
+2026-03-22 22:35:59,616 p=10420 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-22 22:35:59,620 p=10420 u=hendel n=ansible INFO| TASK [Install zsh-syntax-highlighting plugin] **********************************
+2026-03-22 22:36:01,389 p=10420 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-22 22:36:01,394 p=10420 u=hendel n=ansible INFO| TASK [Install zsh-autosuggestions plugin] **************************************
+2026-03-22 22:36:02,945 p=10420 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-22 22:36:02,951 p=10420 u=hendel n=ansible INFO| TASK [Install mise (runtime version manager)] **********************************
+2026-03-22 22:36:05,828 p=10420 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-22 22:36:05,833 p=10420 u=hendel n=ansible INFO| TASK [Set ZSH as default shell] ************************************************
+2026-03-22 22:36:06,208 p=10420 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-22 22:36:06,213 p=10420 u=hendel n=ansible INFO| TASK [Display ZSH default shell notice] ****************************************
+2026-03-22 22:36:06,226 p=10420 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:36:06,230 p=10420 u=hendel n=ansible INFO| TASK [Install Docker packages] *************************************************
+2026-03-22 22:36:09,018 p=10420 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-22 22:36:09,022 p=10420 u=hendel n=ansible INFO| TASK [Create docker group] *****************************************************
+2026-03-22 22:36:09,324 p=10420 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-22 22:36:09,329 p=10420 u=hendel n=ansible INFO| TASK [Add user to docker group] ************************************************
+2026-03-22 22:36:09,609 p=10420 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-22 22:36:09,614 p=10420 u=hendel n=ansible INFO| TASK [Enable Docker service] ***************************************************
+2026-03-22 22:36:10,114 p=10420 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-22 22:36:10,119 p=10420 u=hendel n=ansible INFO| TASK [Enable containerd service] ***********************************************
+2026-03-22 22:36:10,467 p=10420 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-22 22:36:10,472 p=10420 u=hendel n=ansible INFO| TASK [Display Docker group notice] *********************************************
+2026-03-22 22:36:10,486 p=10420 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:36:10,491 p=10420 u=hendel n=ansible INFO| TASK [Install applications from AUR] *******************************************
+2026-03-22 22:36:11,836 p=10420 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-22 22:36:11,841 p=10420 u=hendel n=ansible INFO| TASK [Install terminal tools and utilities] ************************************
+2026-03-22 22:36:12,793 p=10420 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-22 22:36:12,798 p=10420 u=hendel n=ansible INFO| TASK [Check if flatpak is installed] *******************************************
+2026-03-22 22:36:13,023 p=10420 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-22 22:36:13,028 p=10420 u=hendel n=ansible INFO| TASK [Install flatpak] *********************************************************
+2026-03-22 22:36:13,043 p=10420 u=hendel n=ansible INFO| skipping: [localhost]
+2026-03-22 22:36:13,047 p=10420 u=hendel n=ansible INFO| TASK [List existing flatpak remotes] *******************************************
+2026-03-22 22:36:14,297 p=10420 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-22 22:36:14,301 p=10420 u=hendel n=ansible INFO| TASK [Add flathub remote] ******************************************************
+2026-03-22 22:36:15,327 p=10420 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-22 22:36:15,332 p=10420 u=hendel n=ansible INFO| TASK [Install flatpak applications] ********************************************
+2026-03-22 22:36:16,673 p=10420 u=hendel n=ansible INFO| ok: [localhost] => (item=com.bitwarden.desktop)
+2026-03-22 22:36:17,905 p=10420 u=hendel n=ansible INFO| ok: [localhost] => (item=com.obsproject.Studio)
+2026-03-22 22:36:19,137 p=10420 u=hendel n=ansible INFO| ok: [localhost] => (item=com.spotify.Client)
+2026-03-22 22:36:19,370 p=10420 u=hendel n=ansible INFO| ok: [localhost] => (item=org.qbittorrent.qBittorrent)
+2026-03-22 22:36:19,612 p=10420 u=hendel n=ansible INFO| ok: [localhost] => (item=org.telegram.desktop)
+2026-03-22 22:36:19,846 p=10420 u=hendel n=ansible INFO| ok: [localhost] => (item=com.mattjakeman.ExtensionManager)
+2026-03-22 22:36:21,083 p=10420 u=hendel n=ansible INFO| ok: [localhost] => (item=com.github.xournalpp.xournalpp)
+2026-03-22 22:36:21,314 p=10420 u=hendel n=ansible INFO| ok: [localhost] => (item=com.github.PintaProject.Pinta)
+2026-03-22 22:36:21,547 p=10420 u=hendel n=ansible INFO| ok: [localhost] => (item=com.vixalien.sticky)
+2026-03-22 22:36:21,778 p=10420 u=hendel n=ansible INFO| ok: [localhost] => (item=net.nokyan.Resources)
+2026-03-22 22:36:22,009 p=10420 u=hendel n=ansible INFO| ok: [localhost] => (item=io.missioncenter.MissionCenter)
+2026-03-22 22:36:23,241 p=10420 u=hendel n=ansible INFO| ok: [localhost] => (item=io.gitlab.theevilskeleton.Upscaler)
+2026-03-22 22:36:23,477 p=10420 u=hendel n=ansible INFO| ok: [localhost] => (item=dev.vencord.Vesktop)
+2026-03-22 22:36:24,713 p=10420 u=hendel n=ansible INFO| ok: [localhost] => (item=io.dbeaver.DBeaverCommunity)
+2026-03-22 22:36:24,946 p=10420 u=hendel n=ansible INFO| ok: [localhost] => (item=org.zotero.Zotero)
+2026-03-22 22:36:25,183 p=10420 u=hendel n=ansible INFO| ok: [localhost] => (item=org.localsend.localsend_app)
+2026-03-22 22:36:25,416 p=10420 u=hendel n=ansible INFO| ok: [localhost] => (item=com.github.jeromerobert.pdfarranger)
+2026-03-22 22:36:25,649 p=10420 u=hendel n=ansible INFO| ok: [localhost] => (item=com.github.tchx84.Flatseal)
+2026-03-22 22:36:25,657 p=10420 u=hendel n=ansible INFO| TASK [Set system locale] *******************************************************
+2026-03-22 22:36:26,013 p=10420 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-22 22:36:26,018 p=10420 u=hendel n=ansible INFO| TASK [Set timezone to Sao_Paulo] ***********************************************
+2026-03-22 22:36:26,420 p=10420 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-22 22:36:26,425 p=10420 u=hendel n=ansible INFO| TASK [Set keyboard layout (ABNT2 Brazilian)] ***********************************
+2026-03-22 22:36:26,785 p=10420 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-22 22:36:26,790 p=10420 u=hendel n=ansible INFO| TASK [Never blank screen] ******************************************************
+2026-03-22 22:36:27,054 p=10420 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-22 22:36:27,059 p=10420 u=hendel n=ansible INFO| TASK [Switch windows shortcut (Alt+Tab)] ***************************************
+2026-03-22 22:36:27,323 p=10420 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-22 22:36:27,329 p=10420 u=hendel n=ansible INFO| TASK [Play/Pause shortcut] *****************************************************
+2026-03-22 22:36:27,588 p=10420 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-22 22:36:27,593 p=10420 u=hendel n=ansible INFO| TASK [Home shortcut] ***********************************************************
+2026-03-22 22:36:27,876 p=10420 u=hendel n=ansible INFO| changed: [localhost]
+2026-03-22 22:36:27,881 p=10420 u=hendel n=ansible INFO| TASK [Register custom keybindings] *********************************************
+2026-03-22 22:36:28,142 p=10420 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-22 22:36:28,147 p=10420 u=hendel n=ansible INFO| TASK [Terminal shortcut name] **************************************************
+2026-03-22 22:36:28,409 p=10420 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-22 22:36:28,415 p=10420 u=hendel n=ansible INFO| TASK [Terminal shortcut command] ***********************************************
+2026-03-22 22:36:28,678 p=10420 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-22 22:36:28,683 p=10420 u=hendel n=ansible INFO| TASK [Terminal shortcut binding] ***********************************************
+2026-03-22 22:36:28,945 p=10420 u=hendel n=ansible INFO| ok: [localhost]
+2026-03-22 22:36:28,951 p=10420 u=hendel n=ansible INFO| TASK [Display GNOME settings notice] *******************************************
+2026-03-22 22:36:28,969 p=10420 u=hendel n=ansible INFO| ok: [localhost] => {
+    "msg": "GNOME settings configured\nKeyboard: ABNT2 (Brazilian)"
+}
+2026-03-22 22:36:28,973 p=10420 u=hendel n=ansible INFO| TASK [Setup Complete] **********************************************************
+2026-03-22 22:36:28,983 p=10420 u=hendel n=ansible INFO| ok: [localhost] => {
+    "msg": "✓ Arch Linux post-installation setup completed!\n\nNext steps:\n1. Reboot system to all changes take effect\n2. Apply your dotfiles using dotbot\n\nRun 'flatpak list --app' to verify Flatpak applications\nRun 'yay -Q | wc -l' to count installed packages\n"
+}
+2026-03-22 22:36:28,984 p=10420 u=hendel n=ansible INFO| PLAY RECAP *********************************************************************
+2026-03-22 22:36:28,984 p=10420 u=hendel n=ansible INFO| localhost                  : ok=37   changed=8    unreachable=0    failed=0    skipped=10   rescued=0    ignored=0   

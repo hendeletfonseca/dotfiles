@@ -1,0 +1,58 @@
+---
+- name: Install ZSH package
+  become: yes
+  community.general.pacman:
+    name: "{{ zsh_packages }}"
+    state: present
+
+- name: Check if oh-my-zsh is installed
+  stat:
+    path: "{{ ansible_facts['user_dir'] }}/.oh-my-zsh"
+  register: oh_my_zsh_check
+
+- name: Install oh-my-zsh
+  shell: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" -- --unattended
+  args:
+    executable: /bin/bash
+  when: not oh_my_zsh_check.stat.exists
+  environment:
+    SHELL: /bin/bash
+
+- name: Install zoxide
+  shell: curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+  args:
+    executable: /bin/bash
+  when: zsh_config.zoxide_enabled | default(true)
+
+- name: Install zsh-syntax-highlighting plugin
+  ansible.builtin.git:
+    repo: https://github.com/zsh-users/zsh-syntax-highlighting.git
+    dest: "{{ ansible_facts['user_dir'] }}/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
+    version: master
+
+- name: Install zsh-autosuggestions plugin
+  ansible.builtin.git:
+    repo: https://github.com/zsh-users/zsh-autosuggestions.git
+    dest: "{{ ansible_facts['user_dir'] }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
+    version: master
+
+- name: Install mise (runtime version manager)
+  shell: curl https://mise.run | sh
+  args:
+    executable: /bin/bash
+  when: zsh_config.mise_enabled | default(true)
+
+- name: Set ZSH as default shell
+  become: yes
+  ansible.builtin.user:
+    name: "{{ ansible_facts['user_id'] }}"
+    shell: "{{ zsh_config.default_shell }}"
+  when: zsh_config.enable_as_default | default(true)
+  register: shell_change
+
+- name: Display ZSH default shell notice
+  debug:
+    msg: |
+      ✓ ZSH set as default shell
+      ⚠ Please log out and log back in for changes to take effect
+  when: shell_change.changed
