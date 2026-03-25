@@ -43,4 +43,5 @@ ansible-playbook playbook.yml
 ## Roadmap
 
 - [ ] Automate GNOME Shell extension installation via Ansible
+- [ ] SET Copyous keybinding 
 - [ ] Automate Dotbot run via Ansible

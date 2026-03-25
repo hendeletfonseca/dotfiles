@@ -77,3 +77,9 @@
         msg: |
           GNOME settings configured
           Keyboard: ABNT2 (Brazilian)
+
+    - name: Disable notification list shortcut (message tray)
+      community.general.dconf:
+        key: /org/gnome/shell/keybindings/toggle-message-tray
+        value: "@as []"
+        state: present          
