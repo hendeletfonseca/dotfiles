@@ -54,6 +54,7 @@ core_pacman_packages:
   - curl
   - openssh
   - dconf
+  - libgda6
 
 # ZSH Shell Configuration
 # ============================================================================
@@ -123,6 +124,7 @@ flatpak_apps:
   - org.localsend.localsend_app
   - com.github.jeromerobert.pdfarranger
   - com.github.tchx84.Flatseal
+  - org.gnome.Boxes
 
 # Hardware Configuration - AMD CPU + NVIDIA GPU
 # ============================================================================
