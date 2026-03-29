@@ -98,6 +98,7 @@ terminal_tools_packages:
 docker_packages:
   - docker
   - docker-compose
+  - docker-buildx
   - lazydocker
 
 docker_config:
