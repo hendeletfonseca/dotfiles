@@ -92,6 +92,7 @@ terminal_tools_packages:
   - exa
   - btop
   - lazygit
+  - git-delta
 
 # Docker Configuration
 # ============================================================================

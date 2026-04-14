@@ -9,7 +9,7 @@ source $ZSH/oh-my-zsh.sh
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 
-#eval "$(/home/hendel/.local/bin/mise activate zsh)"
+eval "$(/home/hendel/.local/bin/mise activate zsh)"
 eval "$(zoxide init zsh)"
 source <(fzf --zsh)
 #eval "$(zellij setup --generate-auto-start zsh)"
